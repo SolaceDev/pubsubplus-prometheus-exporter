@@ -79,5 +79,5 @@ jobs:
         with:
           context: ./
           tags: |
-            ghcr.io/solacedev/solace_prometheus_exporter:1.0.0
+            ghcr.io/solacedev/solace_prometheus_exporter:1.0.0-dev
           push: ${{ github.ref == 'refs/heads/1.0.0' }}
