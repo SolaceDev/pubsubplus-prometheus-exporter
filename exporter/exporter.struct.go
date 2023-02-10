@@ -2,7 +2,7 @@ package exporter
 
 import (
 	"github.com/go-kit/kit/log"
-	"solace_exporter/semp"
+	"github.com/solacedev/pubsubplus-prometheus-exporter/semp"
 )
 
 // Exporter collects Solace stats from the given URI and exports them using

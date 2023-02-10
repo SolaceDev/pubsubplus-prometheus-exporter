@@ -1,4 +1,4 @@
-module solace_exporter
+module github.com/solacedev/pubsubplus-prometheus-exporter
 
 require (
 	github.com/go-kit/kit v0.9.0

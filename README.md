@@ -1,4 +1,5 @@
-
+[![Test](https://github.com/SolaceDev/pubsubplus-prometheus-exporter/.github/workflows/build-test.yml/badge.svg?branch=SOL-76199)](https://github.com/SolaceDev/pubsubplus-prometheus-exporter/.github/workflows/build-test.yml?branch=SOL-76199)
+[![Go Report Card](https://goreportcard.com/badge/github.com/solacedev/pubsubplus-prometheus-exporter)](https://goreportcard.com/report/github.com/solacedev/pubsubplus-prometheus-exporter)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 # solace-prometheus-exporter, a Prometheus Exporter for Solace Message Brokers

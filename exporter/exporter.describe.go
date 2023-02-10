@@ -3,7 +3,7 @@ package exporter
 import (
 	"github.com/go-kit/kit/log/level"
 	"github.com/prometheus/client_golang/prometheus"
-	"solace_exporter/semp"
+	"github.com/solacedev/pubsubplus-prometheus-exporter/semp"
 	"strings"
 )
 

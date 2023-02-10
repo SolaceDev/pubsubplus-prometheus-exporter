@@ -1,4 +1,6 @@
 FROM golang:1.19.2 AS builder
+RUN useradd -u 10001 prometheus-exporter
+
 LABEL builder=true
 
 ENV CGO_ENABLED=0
@@ -18,7 +20,8 @@ RUN go get -d -v ./... \
 
 
 
-FROM scratch
+FROM registry.access.redhat.com/ubi8/ubi-minimal:latest
+
 LABEL maintainer="https://github.com/solacecommunity/solace-prometheus-exporter"
 
 EXPOSE 9628
