@@ -27,6 +27,8 @@ LABEL release="1.0.0"
 LABEL summary="Solace PubSub+ Prometheus Exporter"
 LABEL description="The Solace PubSub+ Prometheus Exporter exports Event Broker metrics for Prometheus. It is a modified version of the Community exporter for RedHat certification."
 
+USER 10001:10001
+
 EXPOSE 9628
 ENTRYPOINT [ "/solace_prometheus_exporter", "--config-file=/etc/solace/solace_prometheus_exporter.ini" ]
 CMD [ ]
