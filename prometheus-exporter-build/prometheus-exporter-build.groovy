@@ -100,9 +100,9 @@ node(label: "centos7_fast_devserver") {
             }
             // Copy
             sh """
-                docker tag apps-jenkins:18888/pubsubplus-prometheus-exporter/:${version}-${gitShaShort} ${internalRegistry}:${version}-${gitShaShort}
+                docker tag apps-jenkins:18888/pubsubplus-prometheus-exporter:${version}-${gitShaShort} ${internalRegistry}:${version}-${gitShaShort}
                 docker push ${internalRegistry}:${version}-${gitShaShort}
-                docker rmi apps-jenkins:18888/pubsubplus-prometheus-exporter/:${version}-${gitShaShort} ${internalRegistry}:${version}-${gitShaShort}
+                docker rmi apps-jenkins:18888/pubsubplus-prometheus-exporter:${version}-${gitShaShort} ${internalRegistry}:${version}-${gitShaShort}
             """
         }
 
