@@ -46,7 +46,6 @@ jobs:
           popd
           export VERSION='${{ github.event.inputs.release_tag }}'
           export CONTAINER_TO_TEST="ghcr.io/solacedev/pubsubplus_prometheus_exporter:$VERSION"
-          ghcr.io/solacedev/pubsubplus_prometheus_exporter
           /tmp/preflight-linux-amd64 check container $CONTAINER_TO_TEST --docker-config ~/.docker/config.json | grep "Preflight result: PASSED" || echo
 
       - name: Build and publish
