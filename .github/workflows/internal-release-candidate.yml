@@ -1,0 +1,56 @@
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Release tag'
+        required: true
+        default: '1.0.0-dev'
+
+jobs:
+  build_web:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Go
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.13
+
+      - name: Check out code
+        uses: actions/checkout@v1
+
+      - name: Build
+        run: make build
+
+      - name: Login to Github Packages
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build image and push GitHub Container Registry
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          tags: |
+            ghcr.io/solacedev/pubsubplus_prometheus_exporter:${{ github.event.inputs.release_tag }}
+          push: ${{ github.ref == 'refs/heads/1.0.0' }}
+
+      - name: Test image
+        run: |
+          pushd /tmp
+          curl -s https://api.github.com/repos/redhat-openshift-ecosystem/openshift-preflight/releases/latest | grep -wo "https://.*preflight-linux-amd64" | wget -i -
+          chmod +x preflight-linux-amd64
+          popd
+          export CONTAINER_TO_TEST="ghcr.io/solacedev/pubsubplus_prometheus_exporter:${{ github.event.inputs.release_tag }}"
+          /tmp/preflight-linux-amd64 check container $CONTAINER_TO_TEST --docker-config ~/.docker/config.json | grep "Preflight result: PASSED" || echo
+
+      - name: Build and publish
+        run: |
+          export VERSION='${{ github.event.inputs.release_tag }}'
+          # tag as latest
+          PUSHED_IMAGES=`docker images | grep $VERSION`
+          EXPORTER=`echo "$PUSHED_IMAGES" | grep prometheus` ; echo "$EXPORTER"   # Format: Imagepath Tag Sha
+          docker tag `echo $EXPORTER | awk '{print $3}'` `echo $EXPORTER | awk '{print $1}'`:latest
+          docker push `echo $EXPORTER | awk '{print $1}'`:latest

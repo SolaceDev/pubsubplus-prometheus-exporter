@@ -34,6 +34,7 @@ ENTRYPOINT [ "/solace_prometheus_exporter", "--config-file=/etc/solace/solace_pr
 CMD [ ]
 
 COPY LICENSE /licenses/LICENSE
+COPY THIRD-PARTY-LICENSES.md /licenses/THIRD-PARTY-LICENSES.md
 
 COPY docker/solace_prometheus_exporter.ini /etc/solace/solace_prometheus_exporter.ini
 
