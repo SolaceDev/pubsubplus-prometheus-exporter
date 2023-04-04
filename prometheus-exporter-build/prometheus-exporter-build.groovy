@@ -13,6 +13,8 @@ boolean FINAL_CUT = params.FINAL_CUT
 String gitSha = params.GIT_SHA
 String gitShaShort = ""
 String prometheusBranch = params.PROMETHEUS_BRANCH
+String internalRegistry = 'apps-jenkins:18888/prometheus-exporter'
+String version = ''
 
 if (gitSha == "") {
     if (prometheusBranch == "") {
@@ -74,7 +76,7 @@ node(label: "centos7_fast_devserver") {
         stage("Version and Save Docker Image") {
             //get version path from version.go: version ex:1.0.0
             sh "cd /opt/cvsdirs/loadbuild/jenkins/slave/workspace/prometheus-exporter-build"
-            String version = sh(returnStdout:true, script:"cd goversion && cat version.go | grep \"const version\" | sed 's/const version = \"\\(.*\\)\"/\\1/'").trim()
+            version = sh(returnStdout:true, script:"cd goversion && cat version.go | grep \"const version\" | sed 's/const version = \"\\(.*\\)\"/\\1/'").trim()
 
             String uniqueVersion = gitShaShort
 
@@ -89,6 +91,19 @@ node(label: "centos7_fast_devserver") {
 
             //move the tar file to the new directory
             sh "mv pubsubplus-prometheus-exporter_${version}-${uniqueVersion}.tar.gz /home/public/RND/loads/pubsubplus-prometheus-exporter/${version}"
+        }
+        stage ('Upload image to internal registry') {
+            // Login again
+            withCredentials([
+                string(credentialsId: 'nexus-robot2-passwd', variable: 'DOCKER_PASSWORD')]) {
+                sh 'docker login apps-jenkins:18888 -u solace -p solace1'
+            }
+            // Copy
+            sh """
+                docker tag apps-jenkins:18888/pubsubplus-prometheus-exporter/:${version}-${gitShaShort} ${internalRegistry}:${version}-${gitShaShort}
+                docker push ${internalRegistry}:${version}-${gitShaShort}
+                docker rmi apps-jenkins:18888/pubsubplus-prometheus-exporter/:${version}-${gitShaShort} ${internalRegistry}:${version}-${gitShaShort}
+            """
         }
 
     }
