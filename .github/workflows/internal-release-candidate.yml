@@ -35,7 +35,8 @@ jobs:
           context: ./
           tags: |
             ghcr.io/solacedev/pubsubplus_prometheus_exporter:${{ github.event.inputs.release_tag }}
-          push: ${{ github.ref == 'refs/heads/1.0.0' }}
+          #push: ${{ github.ref == 'refs/heads/1.0.0' }}
+          push: true
 
       - name: Test image
         run: |
@@ -43,7 +44,9 @@ jobs:
           curl -s https://api.github.com/repos/redhat-openshift-ecosystem/openshift-preflight/releases/latest | grep -wo "https://.*preflight-linux-amd64" | wget -i -
           chmod +x preflight-linux-amd64
           popd
-          export CONTAINER_TO_TEST="ghcr.io/solacedev/pubsubplus_prometheus_exporter:${{ github.event.inputs.release_tag }}"
+          export VERSION='${{ github.event.inputs.release_tag }}'
+          export CONTAINER_TO_TEST="ghcr.io/solacedev/pubsubplus_prometheus_exporter:$VERSION"
+          ghcr.io/solacedev/pubsubplus_prometheus_exporter
           /tmp/preflight-linux-amd64 check container $CONTAINER_TO_TEST --docker-config ~/.docker/config.json | grep "Preflight result: PASSED" || echo
 
       - name: Build and publish
