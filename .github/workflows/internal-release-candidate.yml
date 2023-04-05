@@ -49,8 +49,8 @@ jobs:
         with:
           wssURL: https://saas.whitesourcesoftware.com/agent
           apiKey: ${{ secrets.WSS_API_KEY }}
-          productName: 'pubsubplus-prometheus-operator'
-          projectName: 'pubsubplus-prometheus-operator'
+          productName: 'pubsubplus-prometheus-exporter'
+          projectName: 'pubsubplus-prometheus-exporter'
           configFile: 'ci/whitesource/whitesource-agent.config'
 
 
