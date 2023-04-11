@@ -113,7 +113,7 @@ node(label: "centos7_fast_devserver") {
             sh """
                 docker tag apps-jenkins:18888/pubsubplus-prometheus-exporter:${imageTag} ${internalRegistry}:${imageTag}
                 docker push ${internalRegistry}:${imageTag}
-                docker rmi apps-jenkins:18888/pubsubplus-prometheus-exporter:${version}-${gitShaShort} ${internalRegistry}:${imageTag}
+                docker rmi apps-jenkins:18888/pubsubplus-prometheus-exporter:${imageTag} ${internalRegistry}:${imageTag}
             """
         }
 
