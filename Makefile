@@ -32,6 +32,12 @@ build: dep ## Build the binary file
 clean: ## Remove previous build
 	@rm -f cover.html cover.out solace_prometheus_exporter
 
+# Generate third party license
+.PHONY:
+generate-license: dep ## Generate third party license
+	@go install github.com/google/go-licenses@latest
+	@go-licenses report . --template ci/whitesource/license-template.tpl > THIRD-PARTY-LICENSES.md
+
 .PHONY:
 help: ## Display this help screen
 	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

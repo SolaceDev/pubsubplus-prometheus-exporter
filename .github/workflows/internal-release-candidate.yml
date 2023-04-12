@@ -12,14 +12,27 @@ jobs:
 
     steps:
       - name: Set up Go
-        uses: actions/setup-go@v1
+        uses: actions/setup-go@v3
         with:
-          go-version: 1.13
+          go-version: 1.19
 
       - name: Check out code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
-      - name: Build
+      - name: Run Whitesource Action
+        uses: mercari/Whitesource-Scan-Action@v1.0.0
+        with:
+          wssURL: https://saas.whitesourcesoftware.com/agent
+          apiKey: ${{ secrets.WSS_API_KEY }}
+          productName: 'pubsubplus-prometheus-exporter'
+          projectName: 'pubsubplus-prometheus-exporter'
+          configFile: 'ci/whitesource/whitesource-agent.config'
+
+      - name: Generate Third Party License
+        run: |
+          make generate-license
+
+      - name: Build exporter
         run: make build
 
       - name: Login to Github Packages
@@ -35,7 +48,7 @@ jobs:
           context: ./
           tags: |
             ghcr.io/solacedev/pubsubplus_prometheus_exporter:${{ github.event.inputs.release_tag }}
-          push: ${{ github.ref == 'refs/heads/1.0.0' }}
+          push: true
 
       - name: Test image
         run: |
@@ -43,14 +56,32 @@ jobs:
           curl -s https://api.github.com/repos/redhat-openshift-ecosystem/openshift-preflight/releases/latest | grep -wo "https://.*preflight-linux-amd64" | wget -i -
           chmod +x preflight-linux-amd64
           popd
-          export CONTAINER_TO_TEST="ghcr.io/solacedev/pubsubplus_prometheus_exporter:${{ github.event.inputs.release_tag }}"
+          export VERSION='${{ github.event.inputs.release_tag }}'
+          export CONTAINER_TO_TEST="ghcr.io/solacedev/pubsubplus_prometheus_exporter:$VERSION"
+          echo "Testing $CONTAINER_TO_TEST"
           /tmp/preflight-linux-amd64 check container $CONTAINER_TO_TEST --docker-config ~/.docker/config.json | grep "Preflight result: PASSED" || echo
 
-      - name: Build and publish
+      - name: Tag same image as latest and push
         run: |
           export VERSION='${{ github.event.inputs.release_tag }}'
           # tag as latest
           PUSHED_IMAGES=`docker images | grep $VERSION`
           EXPORTER=`echo "$PUSHED_IMAGES" | grep prometheus` ; echo "$EXPORTER"   # Format: Imagepath Tag Sha
-          docker tag `echo $EXPORTER | awk '{print $3}'` `echo $EXPORTER | awk '{print $1}'`:latest
-          docker push `echo $EXPORTER | awk '{print $1}'`:latest
+          docker tag `echo $EXPORTER | awk '{print $3}'` `echo $EXPORTER | awk '{print $1}'`:latest1
+          docker push `echo $EXPORTER | awk '{print $1}'`:latest1
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          committer_name: GitHub Actions
+          committer_email: actions@github.com
+          message: 'Updated licenses [skip ci]'
+          add: 'THIRD-PARTY-LICENSES.md'
+          new_branch: 'ReleaseCandidate-${{ github.event.inputs.release_tag }}'
+
+      - name: Create pull request
+        run: |
+          CURRENT_BRANCH=${GITHUB_REF##*/}
+          gh pr create -B ${CURRENT_BRANCH} -H 'ReleaseCandidate-${{ github.event.inputs.release_tag }}' --title "Merge release prep updates into ${CURRENT_BRANCH}" --body 'Created by Github action'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

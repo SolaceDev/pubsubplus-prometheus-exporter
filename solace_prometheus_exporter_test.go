@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/go-kit/kit/log"
 	"net/http"
-	"github.com/solacedev/pubsubplus-prometheus-exporter/exporter"
+	"pubsubplus-prometheus-exporter/exporter"
 	"testing"
+
+	"github.com/go-kit/kit/log"
 )
 
 func Test_doHandle(t *testing.T) {
