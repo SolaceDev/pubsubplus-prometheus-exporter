@@ -14,9 +14,9 @@ package main
 
 import (
 	"bytes"
-	"github.com/solacedev/pubsubplus-prometheus-exporter/exporter"
 	"net/http"
 	"os"
+	"pubsubplus-prometheus-exporter/exporter"
 	"strings"
 	"time"
 

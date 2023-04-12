@@ -1,4 +1,6 @@
-module github.com/solacedev/pubsubplus-prometheus-exporter
+module pubsubplus-prometheus-exporter
+
+go 1.19
 
 require (
 	github.com/go-kit/kit v0.9.0
@@ -26,5 +28,3 @@ require (
 	golang.org/x/sys v0.4.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 )
-
-go 1.18
