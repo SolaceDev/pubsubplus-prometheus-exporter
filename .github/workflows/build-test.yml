@@ -41,7 +41,7 @@ jobs:
           make test-coverage
 
       - name: Uploads reports
-        if: ! startsWith( github.ref_name, '1.' )
+        if: ${{ !startsWith(github.ref_name, '1.') }}
         uses: actions/upload-artifact@v2
         with:
           path: |
