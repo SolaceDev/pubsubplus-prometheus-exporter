@@ -17,7 +17,7 @@ jobs:
           go-version: 1.19
 
       - name: Check out code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Run Whitesource Action
         uses: mercari/Whitesource-Scan-Action@v1.0.0
