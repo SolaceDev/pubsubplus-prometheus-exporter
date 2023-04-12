@@ -2,9 +2,6 @@ name: Build and Test
 
 on:
   push:
-    branches:
-      - 1.0.0
-    tags: []
   pull_request:
 
 jobs:
@@ -16,7 +13,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v1
         with:
-          go-version: 1.18
+          go-version: 1.19
 
       - name: Check out code
         uses: actions/checkout@v1
@@ -33,7 +30,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v1
         with:
-          go-version: 1.13
+          go-version: 1.19
 
       - name: Check out code
         uses: actions/checkout@v1
@@ -42,14 +39,15 @@ jobs:
         run: |
           mkdir reports
           make test-coverage
+          cat ./reports/cover.out
 
-      - name: Uploads reports
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v2
-        with:
-          path: |
-            ./reports/cover.out
-            ./reports/cover.html
+      # - name: Uploads reports
+      #   if: ${{ always() }}
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     path: |
+      #       ./reports/cover.out
+      #       ./reports/cover.html
 
   build:
     name: Build & push image
@@ -59,7 +57,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v1
         with:
-          go-version: 1.13
+          go-version: 1.19
 
       - name: Check out code
         uses: actions/checkout@v1
@@ -79,5 +77,5 @@ jobs:
         with:
           context: ./
           tags: |
-            ghcr.io/solacedev/solace_prometheus_exporter:1.0.0-dev
-          push: ${{ github.ref == 'refs/heads/1.0.0' }}
+            ghcr.io/solacedev/pubsubplus_prometheus_exporter:1.0.0-dev
+          push: true
