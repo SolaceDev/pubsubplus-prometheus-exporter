@@ -39,15 +39,14 @@ jobs:
         run: |
           mkdir reports
           make test-coverage
-          cat ./reports/cover.out
 
-      # - name: Uploads reports
-      #   if: ${{ always() }}
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     path: |
-      #       ./reports/cover.out
-      #       ./reports/cover.html
+      - name: Uploads reports
+        if: ! startsWith( github.ref_name, '1.' )
+        uses: actions/upload-artifact@v2
+        with:
+          path: |
+            ./reports/cover.out
+            ./reports/cover.html
 
   build:
     name: Build & push image
