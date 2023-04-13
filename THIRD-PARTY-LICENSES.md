@@ -14,9 +14,11 @@ github.com/cespare/xxhash/v2:MIT
 
 github.com/go-kit/kit/log:MIT
 
+github.com/go-kit/log:MIT
+
 github.com/go-logfmt/logfmt:MIT
 
-github.com/golang/protobuf/proto:BSD-3-Clause
+github.com/golang/protobuf:BSD-3-Clause
 
 github.com/matttproud/golang_protobuf_extensions/pbutil:Apache-2.0
 
@@ -32,13 +34,15 @@ github.com/prometheus/common/internal/bitbucket.org/ww/goautoneg:BSD-3-Clause
 
 github.com/prometheus/procfs:Apache-2.0
 
-github.com/solacedev/pubsubplus-prometheus-exporter:MIT
+golang.org/x/sys/unix:BSD-3-Clause
 
 google.golang.org/protobuf:BSD-3-Clause
 
 gopkg.in/alecthomas/kingpin.v2:MIT
 
 gopkg.in/ini.v1:Apache-2.0
+
+pubsubplus-prometheus-exporter:MIT
 
 
 THIRD-PARTY SOFTWARE USED
@@ -49,7 +53,7 @@ THIRD-PARTY SOFTWARE USED
 
 
 * Name: github.com/alecthomas/template
-* License: [BSD-3-Clause](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/alecthomas/template/LICENSE)
+* License: [BSD-3-Clause](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -86,7 +90,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 * Name: github.com/alecthomas/units
-* License: [MIT](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/alecthomas/units/COPYING)
+* License: [MIT](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -115,7 +119,7 @@ SOFTWARE.
 
 
 * Name: github.com/beorn7/perks/quantile
-* License: [MIT](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/beorn7/perks/LICENSE)
+* License: [MIT](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -145,7 +149,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 * Name: github.com/cespare/xxhash/v2
-* License: [MIT](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/cespare/xxhash/v2/LICENSE.txt)
+* License: [MIT](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -177,7 +181,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 * Name: github.com/go-kit/kit/log
-* License: [MIT](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/go-kit/kit/LICENSE)
+* License: [MIT](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -208,8 +212,39 @@ SOFTWARE.
 ```
 
 
+* Name: github.com/go-kit/log
+* License: [MIT](Unknown)
+
+LICENSE REQUIREMENTS & SPECIFICATIONS
+======================================
+```
+MIT License
+
+Copyright (c) 2021 Go kit
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+```
+
+
 * Name: github.com/go-logfmt/logfmt
-* License: [MIT](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/go-logfmt/logfmt/LICENSE)
+* License: [MIT](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -240,8 +275,8 @@ SOFTWARE.
 ```
 
 
-* Name: github.com/golang/protobuf/proto
-* License: [BSD-3-Clause](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/golang/protobuf/LICENSE)
+* Name: github.com/golang/protobuf
+* License: [BSD-3-Clause](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -279,7 +314,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 * Name: github.com/matttproud/golang_protobuf_extensions/pbutil
-* License: [Apache-2.0](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/matttproud/golang_protobuf_extensions/LICENSE)
+* License: [Apache-2.0](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -490,7 +525,7 @@ LICENSE REQUIREMENTS & SPECIFICATIONS
 
 
 * Name: github.com/pkg/errors
-* License: [BSD-2-Clause](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/pkg/errors/LICENSE)
+* License: [BSD-2-Clause](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -523,7 +558,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 * Name: github.com/prometheus/client_golang/prometheus
-* License: [Apache-2.0](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/prometheus/client_golang/LICENSE)
+* License: [Apache-2.0](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -734,7 +769,7 @@ LICENSE REQUIREMENTS & SPECIFICATIONS
 
 
 * Name: github.com/prometheus/client_model/go
-* License: [Apache-2.0](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/prometheus/client_model/LICENSE)
+* License: [Apache-2.0](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -945,7 +980,7 @@ LICENSE REQUIREMENTS & SPECIFICATIONS
 
 
 * Name: github.com/prometheus/common
-* License: [Apache-2.0](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/prometheus/common/LICENSE)
+* License: [Apache-2.0](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -1156,7 +1191,7 @@ LICENSE REQUIREMENTS & SPECIFICATIONS
 
 
 * Name: github.com/prometheus/common/internal/bitbucket.org/ww/goautoneg
-* License: [BSD-3-Clause](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/prometheus/common/internal/bitbucket.org/ww/goautoneg/README.txt)
+* License: [BSD-3-Clause](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -1233,7 +1268,7 @@ SUBDIRECTORIES
 
 
 * Name: github.com/prometheus/procfs
-* License: [Apache-2.0](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/github.com/prometheus/procfs/LICENSE)
+* License: [Apache-2.0](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -1443,39 +1478,45 @@ LICENSE REQUIREMENTS & SPECIFICATIONS
 ```
 
 
-* Name: github.com/solacedev/pubsubplus-prometheus-exporter
-* License: [MIT](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/LICENSE)
+* Name: golang.org/x/sys/unix
+* License: [BSD-3-Clause](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
 ```
-MIT License
+Copyright (c) 2009 The Go Authors. All rights reserved.
 
-Copyright (c) 2021 Solace Community
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+   * Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+   * Redistributions in binary form must reproduce the above
+copyright notice, this list of conditions and the following disclaimer
+in the documentation and/or other materials provided with the
+distribution.
+   * Neither the name of Google Inc. nor the names of its
+contributors may be used to endorse or promote products derived from
+this software without specific prior written permission.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ```
 
 
 * Name: google.golang.org/protobuf
-* License: [BSD-3-Clause](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/google.golang.org/protobuf/LICENSE)
+* License: [BSD-3-Clause](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -1512,7 +1553,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 * Name: gopkg.in/alecthomas/kingpin.v2
-* License: [MIT](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/gopkg.in/alecthomas/kingpin.v2/COPYING)
+* License: [MIT](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -1541,7 +1582,7 @@ SOFTWARE.
 
 
 * Name: gopkg.in/ini.v1
-* License: [Apache-2.0](https://github.com/solacedev/pubsubplus-prometheus-exporter/blob/HEAD/vendor/gopkg.in/ini.v1/LICENSE)
+* License: [Apache-2.0](Unknown)
 
 LICENSE REQUIREMENTS & SPECIFICATIONS
 ======================================
@@ -1737,6 +1778,37 @@ third-party archives.
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
+```
+
+
+* Name: pubsubplus-prometheus-exporter
+* License: [MIT](Unknown)
+
+LICENSE REQUIREMENTS & SPECIFICATIONS
+======================================
+```
+MIT License
+
+Copyright (c) 2021 Solace Community
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ```
 
