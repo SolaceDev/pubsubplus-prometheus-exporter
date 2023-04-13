@@ -67,8 +67,8 @@ jobs:
           # tag as latest
           PUSHED_IMAGES=`docker images | grep $VERSION`
           EXPORTER=`echo "$PUSHED_IMAGES" | grep prometheus` ; echo "$EXPORTER"   # Format: Imagepath Tag Sha
-          docker tag `echo $EXPORTER | awk '{print $3}'` `echo $EXPORTER | awk '{print $1}'`:latest1
-          docker push `echo $EXPORTER | awk '{print $1}'`:latest1
+          docker tag `echo $EXPORTER | awk '{print $3}'` `echo $EXPORTER | awk '{print $1}'`:latest
+          docker push `echo $EXPORTER | awk '{print $1}'`:latest
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
