@@ -76,5 +76,5 @@ jobs:
         with:
           context: ./
           tags: |
-            ghcr.io/solacedev/pubsubplus_prometheus_exporter:1.0.0-dev
+            ghcr.io/solacedev/pubsubplus-prometheus-exporter:1.0.0-dev
           push: true

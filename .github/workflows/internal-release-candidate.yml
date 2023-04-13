@@ -47,7 +47,7 @@ jobs:
         with:
           context: ./
           tags: |
-            ghcr.io/solacedev/pubsubplus_prometheus_exporter:${{ github.event.inputs.release_tag }}
+            ghcr.io/solacedev/pubsubplus-prometheus-exporter:${{ github.event.inputs.release_tag }}
           push: true
 
       - name: Test image
@@ -57,7 +57,7 @@ jobs:
           chmod +x preflight-linux-amd64
           popd
           export VERSION='${{ github.event.inputs.release_tag }}'
-          export CONTAINER_TO_TEST="ghcr.io/solacedev/pubsubplus_prometheus_exporter:$VERSION"
+          export CONTAINER_TO_TEST="ghcr.io/solacedev/pubsubplus-prometheus-exporter:$VERSION"
           echo "Testing $CONTAINER_TO_TEST"
           /tmp/preflight-linux-amd64 check container $CONTAINER_TO_TEST --docker-config ~/.docker/config.json | grep "Preflight result: PASSED" || echo
 
