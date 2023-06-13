@@ -1,9 +1,8 @@
 package exporter
 
 import (
-	"solace_exporter/semp"
-
 	"github.com/prometheus/client_golang/prometheus"
+	"solace_exporter/semp"
 )
 
 // Collect fetches the stats from configured Solace location and delivers them
