@@ -1,3 +1,5 @@
+#DO NOT INCLUDE PR
+
 name: Build and Test
 
 on:
@@ -86,10 +88,10 @@ jobs:
           tags: "ghcr.io/${{ env.OWNER_LC }}/solace-prometheus-exporter:1.0.0-dev"
           push: true
 
-      - name: Build image and push GitHub Container Registry
-        uses: docker/build-push-action@v2
-        with:
-          file: Dockerfile.ubi-minimal
-          context: ./
-          tags: "ghcr.io/${{ env.OWNER_LC }}/ghcr.io/pubsubplus-prometheus-exporter:1.0.0-ubi"
-          push: true
+#      - name: Build image and push GitHub Container Registry
+#        uses: docker/build-push-action@v2
+#        with:
+#          file: Dockerfile.ubi-minimal
+#          context: ./
+#          tags: "ghcr.io/${{ env.OWNER_LC }}/ghcr.io/pubsubplus-prometheus-exporter:1.0.0-ubi"
+#          push: true
