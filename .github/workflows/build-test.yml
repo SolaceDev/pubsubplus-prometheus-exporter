@@ -93,9 +93,12 @@ jobs:
         with:
           image-ref: ghcr.io/solacedev/pubsubplus-prometheus-exporter:1.0.1-dev
           format: 'sarif'
+          severity: 'CRITICAL,HIGH'
           output: 'trivy-results.sarif'
 
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v2
+      - name: Uploads Trivy Scan Reports
+        if: ${{ !startsWith(github.ref_name, '1.') }}
+        uses: actions/upload-artifact@v2
         with:
-          sarif_file: 'trivy-results.sarif'
+          path: |
+            trivy-results.sarif
