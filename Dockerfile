@@ -18,12 +18,12 @@ RUN go get -d -v ./... \
     -ldflags '-s -w -extldflags "-static"' \
     -o /bin/solace_prometheus_exporter
 
-FROM registry.access.redhat.com/ubi8/ubi-minimal:latest
+FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
 
 LABEL name="solace/pubsubplus-prometheus-exporter"
 LABEL vendor="Solace Corporation"
-LABEL version="1.0.0"
-LABEL release="1.0.0"
+LABEL version="1.0.1"
+LABEL release="1.0.1"
 LABEL summary="Solace PubSub+ Prometheus Exporter"
 LABEL description="The Solace PubSub+ Prometheus Exporter exports Event Broker metrics for Prometheus. It is a modified version of the Community exporter for RedHat certification."
 
