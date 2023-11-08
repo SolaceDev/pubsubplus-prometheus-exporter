@@ -76,5 +76,29 @@ jobs:
         with:
           context: ./
           tags: |
-            ghcr.io/solacedev/pubsubplus-prometheus-exporter:1.0.0-dev
+            ghcr.io/solacedev/pubsubplus-prometheus-exporter:1.0.1-dev
           push: true
+
+      - name: Run Whitesource Action
+        uses: SolaceDev/Mend-Scan-GHA@v1.0.0
+        with:
+          wssURL: https://saas.whitesourcesoftware.com/agent
+          apiKey: ${{ secrets.WSS_API_KEY }}
+          productName: 'pubsubplus-prometheus-exporter'
+          projectName: 'pubsubplus-prometheus-exporter'
+          configFile: 'ci/whitesource/whitesource-agent.config'
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ghcr.io/solacedev/pubsubplus-prometheus-exporter:1.0.1-dev
+          format: 'sarif'
+          severity: 'CRITICAL,HIGH'
+          output: 'trivy-results.sarif'
+
+      - name: Uploads Trivy Scan Reports
+        if: ${{ !startsWith(github.ref_name, '1.') }}
+        uses: actions/upload-artifact@v2
+        with:
+          path: |
+            trivy-results.sarif
