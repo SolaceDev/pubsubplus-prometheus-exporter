@@ -20,6 +20,10 @@ RUN go get -d -v ./... \
 
 FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
 
+
+RUN microdnf install -y curl-minimal-7.76.1-26.el9_3.2 libcurl-minimal-7.76.1-26.el9_3.2
+
+
 LABEL name="solace/pubsubplus-prometheus-exporter"
 LABEL vendor="Solace Corporation"
 LABEL version="1.0.1"
