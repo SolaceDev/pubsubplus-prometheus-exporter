@@ -121,7 +121,7 @@ jobs:
         uses: ./maas-build-actions/.github/actions/prisma-vulnerability-checker
         with:
           docker_image_to_check: gcr.io/solacedev/pubsubplus-prometheus-exporter:${{ github.event.inputs.release_tag }}
-          prisma_repository_name: "pubsubplus-prometheus-exporter"
+          prisma_repository_name: "solace/pubsubplus-prometheus-exporter"
           project_squad: "mission-control"
           prisma_jira_check: "True"
 
