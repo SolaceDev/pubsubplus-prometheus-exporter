@@ -1,4 +1,4 @@
-FROM golang:1.19.2 AS builder
+FROM golang:1.20.12 AS builder
 RUN useradd -u 10001 prometheus-exporter
 
 LABEL builder=true
@@ -18,16 +18,12 @@ RUN go get -d -v ./... \
     -ldflags '-s -w -extldflags "-static"' \
     -o /bin/solace_prometheus_exporter
 
-FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
-
-
-RUN microdnf install -y curl-minimal-7.76.1-26.el9_3.2 libcurl-minimal-7.76.1-26.el9_3.2
-
+FROM golang:1.20.12-alpine3.19
 
 LABEL name="solace/pubsubplus-prometheus-exporter"
 LABEL vendor="Solace Corporation"
-LABEL version="1.0.1"
-LABEL release="1.0.1"
+LABEL version="1.0.2"
+LABEL release="1.0.2"
 LABEL summary="Solace PubSub+ Prometheus Exporter"
 LABEL description="The Solace PubSub+ Prometheus Exporter exports Event Broker metrics for Prometheus. It is a modified version of the Community exporter for RedHat certification."
 

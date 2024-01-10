@@ -19,4 +19,4 @@
 package goversion
 
 //lint:ignore U1000 Used only by Jenkins, not in code
-const version = "1.0.1"
+const version = "1.0.2"
