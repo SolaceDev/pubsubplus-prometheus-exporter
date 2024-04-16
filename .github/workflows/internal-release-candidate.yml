@@ -61,7 +61,6 @@ jobs:
           tags: |
             ghcr.io/solacedev/pubsubplus-prometheus-exporter:${{ github.event.inputs.release_tag }}
           push: true
-          platforms: linux/i386,linux/amd64,linux/arm64
 
 
       - name: Checkout SolaceDev/maas-build-actions
