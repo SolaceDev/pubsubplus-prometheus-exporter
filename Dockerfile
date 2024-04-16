@@ -18,7 +18,7 @@ RUN go get -d -v ./... \
     -ldflags '-s -w -extldflags "-static"' \
     -o /bin/solace_prometheus_exporter
 
-FROM alpine:3.19.0
+FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
 
 LABEL name="solace/pubsubplus-prometheus-exporter"
 LABEL vendor="Solace Corporation"
