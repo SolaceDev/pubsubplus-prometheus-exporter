@@ -97,7 +97,7 @@ jobs:
           configFile: 'ci/whitesource/whitesource-agent.config'
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@0.30.0
         with:
           image-ref: ghcr.io/solacedev/pubsubplus-prometheus-exporter:1.0.2-dev
           format: 'sarif'

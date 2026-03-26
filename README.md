@@ -4,6 +4,10 @@
 
 # solace-prometheus-exporter, a Prometheus Exporter for Solace Message Brokers
 
+> **⚠️ END OF LIFE NOTICE**
+>
+> This project has reached end of life and is no longer actively maintained. For Prometheus monitoring with event brokers, please refer to the official deployment guide: [PubSub+ Kubernetes Quickstart - Deployment with Prometheus Monitoring Enabled](https://github.com/SolaceProducts/pubsubplus-kubernetes-quickstart?tab=readme-ov-file#d-deployment-with-prometheus-monitoring-enabled)
+
 ## Overview
 
 ![Architecture overview](https://raw.githubusercontent.com/solacecommunity/solace-prometheus-exporter/master/doc/architecture_001.png)
